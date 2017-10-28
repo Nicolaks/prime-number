@@ -1,5 +1,5 @@
 # <thanks to https://stackoverflow.com/users/166949/steveha
-
+import os
 
 # Function return true if a number is prime.
 def is_prime(n):
@@ -23,8 +23,25 @@ def launch():
 			prime_file.close()
 
 
-# Main function how launch all the program.
+# Convert bytes
+def convert_bytes(num):
+	res = num / 1024.0
+	return res
+
+
+# Allow to see the size of a file
+def file_size(file_path):
+	if os.path.isfile(file_path):
+		file_info = os.stat(file_path)
+		return convert_bytes(file_info.st_size)
+
+
+# Main function who launch all the program.
 def main():
 	launch()
+	file_path = "data.txt"
+	marks = str(int(file_size(file_path)))
+	print(marks + " ko")
+
 
 main()
