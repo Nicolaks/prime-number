@@ -1,4 +1,3 @@
-# <thanks to https://stackoverflow.com/users/166949/steveha
 import os
 from math import *
 
@@ -8,7 +7,6 @@ def is_prime(n):
 		if n%i == 0:
 			return False
 	return True
-
 
 
 # Create a while, with a top number, and check if the number
@@ -26,6 +24,7 @@ def launch():
 
 # Convert bytes
 def convert_bytes(num):
+	global res
 	res = num / 1024.0
 	return res
 
@@ -37,12 +36,20 @@ def file_size(file_path):
 		return convert_bytes(file_info.st_size)
 
 
+# Function who create new file if the file is > to 8 mo
+def create_file(name):
+	new_file = open(name, "a")
+
 # Main function who launch all the program.
 def main():
 	launch()
 	file_path = "data.txt"
 	marks = str(int(file_size(file_path)))
 	print(marks + " ko")
+
+	name = "random"
+	if res >= 1000:
+		create_file(name)
 
 
 main()
