@@ -17,7 +17,7 @@ def launch():
 	for p in range(2, n+1):
 		if is_prime(p):
 			print(p)
-			prime_file = open(alpha_grec[0], "a")
+			prime_file = open("prime", "a")
 			prime_file.write(str(p) + " " + str(is_prime(p)) + "\n")
 			prime_file.close()
 
@@ -36,43 +36,14 @@ def file_size(file_path):
 		return convert_bytes(file_info.st_size)
 
 
-# Function who create new file if the file is > to 8 mo.
-def create_file(name):
-	new_file = open(name, "a")
-
-
 # Main function who launch all the program.
 def main():
 
-	# Create alphabet to give name for files.
-	global alpha_grec
-	alpha_grec = ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta",
-	 "theta", "iota", "kappa", "lambba", "mu", "nu", "xi", "omicron", "pi", "rho",
-	  "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega"]
 
 	launch()
-	file_path = alpha_grec[0]
+	file_path = "prime"
 	marks = str(int(file_size(file_path)))
 	print(marks + " ko")
 
-	name = "random"
-	if res >= 1000:
-		create_file(alpha_grec[1])
-
-
-"""
-	begin = True
-	create_file(alpha_grec[0])
-	while begin:
-		launch()
-		for i in range(alpha_grec):
-			res2 = alpha_grec[i]
-			return res2
-	marks = str(int(file_size(file_path)))
-	if res >= 1000:
-		create_file(res2)
-
-
-"""
 
 main()
