@@ -22,26 +22,33 @@ def launch():
 			prime_file.close()
 
 
-# Convert bytes
+# Convert bytes.
 def convert_bytes(num):
 	global res
 	res = num / 1024.0
 	return res
 
 
-# Allow to see the size of a file
+# Allow to see the size of a file.
 def file_size(file_path):
 	if os.path.isfile(file_path):
 		file_info = os.stat(file_path)
 		return convert_bytes(file_info.st_size)
 
 
-# Function who create new file if the file is > to 8 mo
+# Function who create new file if the file is > to 8 mo.
 def create_file(name):
 	new_file = open(name, "a")
 
+
 # Main function who launch all the program.
 def main():
+
+	# Create alphabet to give name for files.
+	alpha_grec = ["alpha", "beta", "gamma", "delta", "epsilon", "zeta", "eta",
+	 "theta", "iota", "kappa", "lambba", "mu", "nu", "xi", "omicron", "pi", "rho",
+	  "sigma", "tau", "upsilon", "phi", "chi", "psi", "omega"]
+
 	launch()
 	file_path = "data.txt"
 	marks = str(int(file_size(file_path)))
@@ -50,6 +57,7 @@ def main():
 	name = "random"
 	if res >= 1000:
 		create_file(name)
+
 
 
 main()
